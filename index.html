@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>body cut-out demo</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main>
+    <h1>body cut-out demo</h1>
+
+    <div class="stage">
+      <!-- hidden raw camera feed -->
+      <video id="inputVideo" playsinline muted></video>
+
+      <!-- output (person only) -->
+      <canvas id="outputCanvas"></canvas>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn">start</button>
+      <label>
+        quality
+        <select id="quality">
+          <option value="qvga">low (320×240)</option>
+          <option value="vga" selected>med (640×480)</option>
+          <option value="hd">high (1280×720)</option>
+        </select>
+      </label>
+      <label>
+        model
+        <select id="modelSel">
+          <option value="0">fast</option>
+          <option value="1" selected>accurate</option>
+        </select>
+      </label>
+    </div>
+
+    <p class="note">
+      tip: run this over HTTPS. on iOS safari, you must tap “start” to grant camera access.
+    </p>
+  </main>
+
+  <!-- mediapipe (cdn) -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation/selfie_segmentation.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+  <script src="./script.js"></script>
+</body>
+</html>
